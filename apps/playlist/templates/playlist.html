@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+    <div>
+      <h2>플레이리스트</h2>
+      <ul>
+        <li v-for="playlist in playlists" :key="playlist.id">
+          {{ playlist.name }}
+          <button @click="deletePlaylist(playlist.id)">삭제</button>
+        </li>
+      </ul>
+      <form @submit.prevent="createPlaylist">
+        <input type="text" v-model="newPlaylistName" placeholder="새 플레이리스트 이름">
+        <button type="submit">플레이리스트 생성</button>
+      </form>
+    </div>
+</body>
+</html>

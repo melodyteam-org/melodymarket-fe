@@ -1,0 +1,18 @@
+<template>
+    <div>
+      <h2>노래</h2>
+      <ul>
+        <li v-for="song in songs" :key="song.id">
+          {{ song.title }} - {{ song.artist }}
+          <button @click="addToPlaylist(song.id)">플레이리스트에 추가</button>
+          <button @click="removeFromPlaylist(song.id)">플레이리스트에서 제거</button>
+        </li>
+      </ul>
+      <select v-model="selectedPlaylistId">
+        <option value="">플레이리스트 선택</option>
+        <option v-for="playlist in playlists" :value="playlist.id" :key="playlist.id">
+          {{ playlist.name }}
+        </option>
+      </select>
+    </div>
+  </template>
